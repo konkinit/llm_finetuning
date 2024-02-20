@@ -1,0 +1,5 @@
+bitsandbytes
+pydantic
+python-dotenv
+fastapi
+uvicorn

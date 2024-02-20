@@ -3,8 +3,14 @@ from typing_extensions import Annotated
 
 
 class ModelConfig(BaseModel):
-    pretrained_model_name_or_path: str
-    device_map: str | dict
+    pretrained_model_name_or_path: Annotated[
+        str, Field(description="Pretrained model path or name")
+    ]
+    device_map: Annotated[
+        str | dict, Field(description="a map that specifies where \
+        each submodule should go. To have Accelerate compute the most \
+        optimized device_map automatically, set device_map='auto'")
+    ]
     use_cache: Annotated[
         bool, Field(description="Whether or not the model should \
         return the last key/values attentions")
