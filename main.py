@@ -1,6 +1,6 @@
 from fastapi import FastAPI, status
 
-from src.api.route import router
+from src.api_routes.finetuning_route import router as finetune_route
 from src.configs.api_config import APIConfig
 
 
@@ -23,5 +23,5 @@ async def root() -> dict:
 
 
 app.include_router(
-    router, prefix=APIConfig().api_prefix, tags=["LLM_Finetuning"]
+    finetune_route, prefix=APIConfig().api_prefix, tags=["LLM_Finetuning"]
 )

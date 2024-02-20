@@ -6,7 +6,7 @@ class TrainingArgs(BaseModel):
     output_dir: Annotated[
         str, Field(description="The output directory where the model \
         predictions and checkpoints will be written.")
-    ] = "./results/training_data"
+    ] = "./finetuning_results/training_data"
     gradient_accumulation_steps: Annotated[
         int, Field(description=" Number of updates steps to accumulate \
         the gradients for, before performing a backward/update pass.")
