@@ -18,7 +18,12 @@ load_dotenv()
 class FineTuner(SFTTrainer):
     def __init__(
         self, finetuning_data: FinetuningData,
-    ):
+    ) -> None:
+        """Initialize the finetuner object
+
+        Args:
+            finetuning_data (FinetuningData): finetuning data
+        """
         dataset = load_dataset(
             finetuning_data.dataset_config.name,
             split=finetuning_data.dataset_config.split)
@@ -54,9 +59,13 @@ class FineTuner(SFTTrainer):
         self.push2hub_config: Push2HubConfig = finetuning_data.push2hub_config
 
     def _train(self) -> None:
+        """Train the LoRA parameters
+        """
         self.train()
 
     def _save(self) -> None:
+        """Save the model
+        """
         self.model.save_pretrained("./results/finetuned_models")
 
     def _push_to_HF_hub(self) -> None:

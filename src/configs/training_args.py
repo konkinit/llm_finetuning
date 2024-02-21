@@ -30,7 +30,7 @@ class TrainingArgs(BaseModel):
     ] = 4
     optim: Annotated[
         str, Field(description="The optimizer to use")
-    ] = "paged_adamw_32bit"
+    ] = "adafactor"
     save_steps: Annotated[
         float | int, Field(description="Number of updates steps before two \
         checkpoint saves")
@@ -38,7 +38,9 @@ class TrainingArgs(BaseModel):
     logging_steps: Annotated[
         float | int, Field(description="Number of update steps between two logs")
     ] = 0.25
-    fp16: bool = False
+    fp16: Annotated[
+        bool, Field(description="enable mixed precision training")
+    ] = True
     bf16: bool = False
     max_grad_norm: Annotated[
         float, Field(description="Maximum gradient norm (for gradient clipping)")

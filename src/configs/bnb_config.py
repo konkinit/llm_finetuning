@@ -14,4 +14,4 @@ class BnBConfig(BaseModel):
     ] = "float16"
     bnb_4bit_use_double_quant: Annotated[
         bool, Field(description="enable double quantization")
-    ] = True
+    ] = False
