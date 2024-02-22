@@ -46,7 +46,7 @@ class TrainingArgs(BaseModel):
         float, Field(description="Maximum gradient norm (for gradient clipping)")
     ] = 0.3
     max_steps: Annotated[
-        int, Field(description="f set to a positive number, the total number \
+        int, Field(description="if set to a positive number, the total number \
         of training steps to perform. Overrides num_train_epochs")
     ] = -1
     warmup_ratio: Annotated[

@@ -1,7 +1,6 @@
 # LLM Finetuning
 
-A project to get hands-on LLM finetuning by finetuning a Mistral model
-on custom dataset I created.
+A project to get hands-on LLM finetuning by finetuning an LLM on a custom dataset.
 
 ## ToDo
 - Document code

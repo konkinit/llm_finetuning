@@ -24,6 +24,8 @@ class FineTuner(SFTTrainer):
         Args:
             finetuning_data (FinetuningData): finetuning data
         """
+        login(token=os.getenv("HF_READ_TOKEN"))
+        
         dataset = load_dataset(
             finetuning_data.dataset_config.name,
             split=finetuning_data.dataset_config.split)
@@ -70,9 +72,6 @@ class FineTuner(SFTTrainer):
 
     def _push_to_HF_hub(self) -> None:
         """Push the finetuned model to Hugging Face Hub
-
-        Args:
-            push2hub_config (Push2HubConfig): push config data
         """
         login(token=os.getenv("HF_WRITE_TOKEN"))
         self.model.push_to_hub(

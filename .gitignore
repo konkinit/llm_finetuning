@@ -1,4 +1,4 @@
-results/training_data/
+/finetuning_results/training_data/
 .vscode
 
 # Byte-compiled / optimized / DLL files
